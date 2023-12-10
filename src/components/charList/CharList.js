@@ -37,7 +37,7 @@ const CharList = (props) => {
       ended = true;
     }
 
-    setCharList(charList => [...charList, ...newCharList]);
+    setCharList([...charList, ...newCharList]);
     setLoading(loading => false);
     setNewItemLoading(newItemLoading => false);
     setOffset(offset => offset + 9);
@@ -71,14 +71,14 @@ const CharList = (props) => {
           ref={el => itemRefs.current[i] = el}
           key={item.id}
           onClick={() => {
-            props.onCharSelected(item.id);
+            props.onCharacterSelected(item.id);
             focusOnItem(i);
           }}
           onKeyPress={(e) => {
-              if (e.key === ' ' || e.key === "Enter") {
-                  props.onCharSelected(item.id);
-                  focusOnItem(i);
-              }
+            if (e.key === ' ' || e.key === "Enter") {
+              props.onCharacterSelected(item.id);
+              focusOnItem(i);
+            }
           }}>
             <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
             <div className="char__name">{item.name}</div>
@@ -116,7 +116,7 @@ const CharList = (props) => {
 }
 
 CharList.propTypes = {
-  onCharSelected: PropTypes.func.isRequired
+  onCharacterSelected: PropTypes.func.isRequired
 }
 
 export default CharList;
