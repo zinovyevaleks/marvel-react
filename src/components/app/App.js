@@ -10,6 +10,8 @@ import decoration from '../../resources/img/vision.png';
 const App = () => {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
 
+  console.log(selectedCharacter);
+
   const onCharacterSelected = (id) => {
     setSelectedCharacter(id);
   }
